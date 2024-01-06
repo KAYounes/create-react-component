@@ -24,4 +24,9 @@ const [...COMPONENT_NAME_ARRY] = program.args;
 const COMPONENT_NAME = utils.getNameFromArray(COMPONENT_NAME_ARRY);
 
 const OPTIONS = program.opts;
-const { cssName: CSS_MODULE_NAME, nocss: NO_CSS, clientComp: CLIENT_COMPONENT, force: FORCE } = OPTIONS;
+const {
+  cssName: CSS_MODULE_NAME = COMPONENT_NAME,
+  nocss: NO_CSS = false,
+  clientComp: CLIENT_COMPONENT = false,
+  force: FORCE = false,
+} = OPTIONS;
