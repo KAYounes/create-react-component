@@ -32,12 +32,6 @@ program
 
 program.parse();
 
-// console.log(process.argv);
-console.log(program.opts());
-// // console.log(program.);
-// console.log(__dirname);
-
-logs.logLines(5);
 const [...COMPONENT_NAME_ARRY] = program.args;
 const { name: COMPONENT_NAME, changed } = utils.parseComponentName(COMPONENT_NAME_ARRY);
 
@@ -54,7 +48,7 @@ const {
 /* 
 
 */
-logs.logLines(2);
+logs.logLines(1);
 logs.logTitle('Logs');
 logs.logComponentName(COMPONENT_NAME);
 if (changed) logs.logComponentNameChanged(utils.getNameFromArray(COMPONENT_NAME_ARRY), COMPONENT_NAME);
@@ -97,7 +91,7 @@ if (component_already_exists) {
 }
 
 createComponent();
-logs.logLines(5);
+logs.logLines(2);
 /*  */
 function cannotProceed(reason, fix) {
   logs.logTermination(reason, fix);
