@@ -49,6 +49,17 @@ function logTermination(reason, fix) {
 function logLines(lines = 1) {
   console.log('\n'.repeat(lines));
 }
+
+function logCSSComplete(css_module) {
+  logPrefixed(chalk.gray('CSS Module:', chalk.green(css_module)));
+}
+function logUseClientComplete(css_module) {
+  logPrefixed(chalk.gray('Add "use client":', chalk.green('done')));
+}
+
+function logSuccess() {
+  logTitle('All Done');
+}
 /* 
 
 */
@@ -59,6 +70,9 @@ const logs = {
   logComponentPath,
   logLines,
   logComponentNameChanged,
+  logUseClientComplete,
+  logCSSComplete,
+  logSuccess,
 };
 
 module.exports = logs;

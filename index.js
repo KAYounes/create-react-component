@@ -125,13 +125,16 @@ function createComponent() {
       const css_name = createCss();
       const importCSSStatement = `import styles from './${css_name}.module.css';`;
       lines.splice(1, 0, importCSSStatement);
+      logs.logCSSComplete(`${css_name}.module.css`);
     }
 
     if (CLIENT_COMPONENT) {
       lines.splice(0, 0, '"use client"');
+      logs.logUseClientComplete();
     }
 
     fs.writeFileSync(component_path, lines.join(os.EOL), { encoding: 'utf-8' });
+    logs.logSuccess();
   } catch (error) {
     cannotProceed(
       chalk.gray('reason: ', error),
