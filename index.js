@@ -26,12 +26,14 @@ program
   )
   .addOption(new Option('-c --client-comp', "Add 'use client' to component"))
   .addOption(new Option('--nocss', 'Dose not create a css module'))
-  .addOption(new Option('-n, --css-name <name>').conflicts('nocss'));
+  .addOption(new Option('-n, --css-name <name>').conflicts('nocss'))
+  .addOption(new Option('-x, --as-jsx').default(false))
+  .addOption(new Option('-e, -file-extention <name>').default('js').conflicts('jsx'));
 
 program.parse();
 
 // console.log(process.argv);
-// console.log(program.opts());
+console.log(program.opts());
 // // console.log(program.);
 // console.log(__dirname);
 
@@ -46,6 +48,8 @@ const {
   nocss: NO_CSS = false,
   clientComp: CLIENT_COMPONENT = false,
   force: FORCE = false,
+  asJsx: AS_JSX = true,
+  fileExtention: FILE_EXTENTION = 'js',
 } = OPTIONS;
 /* 
 
@@ -103,7 +107,11 @@ function cannotProceed(reason, fix) {
 }
 
 function createComponent() {
-  const component_path = path.join(constants.COMPONENTS_PATH, COMPONENT_NAME, `${COMPONENT_NAME}.js`);
+  const component_path = path.join(
+    constants.COMPONENTS_PATH,
+    COMPONENT_NAME,
+    `${COMPONENT_NAME}.${FILE_EXTENTION}${AS_JSX ? 'x' : ''}`,
+  );
 
   try {
     const components_dir_exist = checks.checkForComponentsDir();
