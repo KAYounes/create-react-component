@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const logs = require('./logs');
 const utils = require('./utils');
 
 ////////////////////////////////////////////////////

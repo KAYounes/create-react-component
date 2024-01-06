@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/KAYounes/create-react-component/issues"
   },
-  "homepage": "https://github.com/KAYounes/create-react-component#readme"
+  "homepage": "https://github.com/KAYounes/create-react-component#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "10"
+  }
 }
