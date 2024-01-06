@@ -101,11 +101,9 @@ function cannotProceed(reason, fix) {
 }
 
 function createComponent() {
-  const component_path = path.join(
-    constants.COMPONENTS_PATH,
-    COMPONENT_NAME,
-    `${COMPONENT_NAME}.${FILE_EXTENTION}${AS_JSX ? 'x' : ''}`,
-  );
+  let css_name = COMPONENT_NAME;
+  const component_file = `${COMPONENT_NAME}.${FILE_EXTENTION}${AS_JSX ? 'x' : ''}`;
+  const component_path = path.join(constants.COMPONENTS_PATH, COMPONENT_NAME, component_file);
 
   try {
     const components_dir_exist = checks.checkForComponentsDir();
@@ -122,7 +120,7 @@ function createComponent() {
     let lines = component.split(os.EOL);
 
     if (!NO_CSS) {
-      const css_name = createCss();
+      createCss();
       const importCSSStatement = `import styles from './${css_name}.module.css';`;
       lines.splice(1, 0, importCSSStatement);
       logs.logCSSComplete(`${css_name}.module.css`);
@@ -134,6 +132,9 @@ function createComponent() {
     }
 
     fs.writeFileSync(component_path, lines.join(os.EOL), { encoding: 'utf-8' });
+
+    const base = utils.truncatePath(constants.COMPONENTS_PATH);
+    logs.logTree(base, component_file, `${css_name}.module.css`);
     logs.logSuccess();
   } catch (error) {
     cannotProceed(
@@ -141,12 +142,11 @@ function createComponent() {
       chalk.gray(
         'fix: unknow error, no fixes known. Make sure the component name is a valid file name on your machine.',
       ),
-      cleanUp(COMPONENT_NAME),
     );
+    cleanUp(COMPONENT_NAME);
   }
 
   function createCss() {
-    let css_name = COMPONENT_NAME;
     if (CSS_MODULE_NAME) {
       const sanitizedCSSName = sanitize(CSS_MODULE_NAME);
       if (sanitizedCSSName !== '') css_name = sanitizedCSSName;

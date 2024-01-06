@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+
 const constants = require('./constants');
 const path = require('path');
 const utils = require('./utils');
@@ -58,7 +59,29 @@ function logUseClientComplete(css_module) {
 }
 
 function logSuccess() {
-  logTitle('All Done');
+  logTitle('All Done', chalk.green);
+}
+
+function logTree(base, component, css) {
+  // base = base.replace(constants.PROJECT_DIR, 'home');
+  // let paths = [path.join(base, component), css ? path.join(base, css) : ''];
+  // paths = paths.map((p) => p.replaceAll('\\', '/'));
+  // let tree = prettyTree(paths);
+  // tree = tree.replaceAll('home', constants.PROJECT_DIR);
+  // tree = tree.replaceAll('/', path.sep);
+  // console.log(chalk.gray(tree));
+  // console.log(' ' + chalk.gray(base));
+  // console.log(chalk.gray(' |-' + component));
+  // console.log(chalk.gray(' |-' + css));
+
+  const text_len = base.length;
+  const sep_length = 60;
+  const sep = '='.repeat(sep_length);
+  const spaces = ' '.repeat((sep_length - text_len) / 2);
+
+  const tree = spaces + base + '\n' + spaces + ' |-' + component + '\n' + spaces + ' |-' + css;
+  if (typeof color === 'undefined') color = chalk.gray;
+  console.log(color(`${sep}\n${tree}\n${sep}`));
 }
 /* 
 
@@ -73,6 +96,7 @@ const logs = {
   logUseClientComplete,
   logCSSComplete,
   logSuccess,
+  logTree,
 };
 
 module.exports = logs;
