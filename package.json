@@ -26,6 +26,7 @@
   "homepage": "https://github.com/KAYounes/create-react-component#readme",
   "dependencies": {
     "chalk": "^4.1.2",
-    "commander": "10"
+    "commander": "10",
+    "sanitize-filename": "^1.6.3"
   }
 }
