@@ -121,7 +121,7 @@ function createComponent() {
 
     if (!NO_CSS) {
       const css_name = createCss();
-      const importCSSStatement = `import styles from '${css_name}.module.css';`;
+      const importCSSStatement = `import styles from './${css_name}.module.css';`;
       lines.splice(1, 0, importCSSStatement);
     }
 
