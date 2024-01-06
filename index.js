@@ -30,6 +30,12 @@ program
 
 program.parse();
 
+// console.log(process.argv);
+// console.log(program.opts());
+// // console.log(program.);
+// console.log(__dirname);
+
+logs.logLines(5);
 const [...COMPONENT_NAME_ARRY] = program.args;
 const { name: COMPONENT_NAME, changed } = utils.parseComponentName(COMPONENT_NAME_ARRY);
 
@@ -54,7 +60,9 @@ const inProject = checks.isInProject();
 if (!inProject && !FORCE) {
   const reason =
     chalk.gray('Reason: ') +
-    chalk.gray("the 'src' directory, 'package.json', and 'package-lock.json' were not found in the current directory");
+    chalk.gray(
+      "the 'src' directory, 'package.json', and/or 'package-lock.json' were not found in the current directory",
+    );
 
   const fixs = [
     chalk.gray('Fix: ') + chalk.gray('Please make sure you are running this in the root of your react project'),
@@ -105,7 +113,7 @@ function createComponent() {
       fs.mkdirSync(_path, { recursive: true });
     }
 
-    const template_path = path.join('.', 'template.js');
+    const template_path = path.join(__dirname, 'template.js');
     const template = fs.readFileSync(template_path, { encoding: 'utf-8' });
 
     const component = template.replaceAll('COMPONENT_NAME', COMPONENT_NAME);
