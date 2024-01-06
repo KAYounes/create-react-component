@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const { program, Option } = require('commander');
 const logs = require('./logs');
 const utils = require('./utils');
 
@@ -31,3 +31,8 @@ const {
   clientComp: CLIENT_COMPONENT = false,
   force: FORCE = false,
 } = OPTIONS;
+/* 
+
+*/
+logs.logTitle('Logs');
+logs.logComponentName(COMPONENT_NAME);
