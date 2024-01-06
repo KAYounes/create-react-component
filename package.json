@@ -1,0 +1,27 @@
+{
+  "name": "make-comp",
+  "version": "2.0.1",
+  "description": "Create a react component with options for client-component and css modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KAYounes/create-react-component.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "boilerplating"
+  ],
+  "author": "kay",
+  "license": "MIT",
+  "bin": {
+    "make-comp": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/KAYounes/create-react-component/issues"
+  },
+  "homepage": "https://github.com/KAYounes/create-react-component#readme"
+}
