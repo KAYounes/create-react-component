@@ -4,9 +4,9 @@ _the name was taken…_
 
 **A command line interface (CLI) tool to creates a react component in your `src/components/` directory.**
 
-# Outputs — **\*\*\*\***Component**\*\*\*\***
+# ***Component***
 
-****\*\*****Path****\*\*****
+**Path**
 
 ```
 <project>/src/components/<component>/<component>.js
@@ -27,7 +27,7 @@ function ComponentName({}) {
 export default ComponentName;
 ```
 
-********\*\*********Structure********\*\*********
+**Structure**
 
 ```
 <project>/
@@ -38,6 +38,8 @@ export default ComponentName;
             └── componentName.module.css
 
 ```
+
+---
 
 # Command
 
@@ -50,6 +52,7 @@ export default ComponentName;
 | File Extension     | .js                      |
 | Creates CSS Module | true                     |
 | CSS Module Name    | componentName.module.css |
+|                    |                          |
 
 ### Passing Component Name
 
@@ -63,7 +66,7 @@ $ npm make-comp <component-name>
 $ npm make-comp cardGridHorizontal
 ```
 
-> `CardGridHorizontal`
+> CardGridHorizontal
 
 **An** **alternative** method would by to multiple names separated by a space, the component name will be the concatenation of all the names in `Pascal` casing.
 
@@ -71,11 +74,11 @@ $ npm make-comp cardGridHorizontal
 $ npm make-comp card grid horizontal
 ```
 
-> `CardGridHorizontal`
+> CardGridHorizontal
 
-**_Note_**
+**_Note_** -- Please make sure that the component name is a valid `js` variable name.
 
-Please make sure that the component name is a valid `js` variable name.
+---
 
 ### Options
 
@@ -87,7 +90,8 @@ Please make sure that the component name is a valid `js` variable name.
 | Creates a .jsx file instead of a .js | -x  | --as-jsx         |                |
 | Pass an alternative file extension   | -e  | --file-extension | takes a string |
 | No logs are outputted                | -s  | --silent         |                |
+|                                      |     |                  |                |
 
 ---
 
-> ******************\*\*******************Sorry for any bugs, I tested it and it seems to work fine.******************\*\*******************
+> *Sorry for any bugs, I tested it and it seems to work fine.*
