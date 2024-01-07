@@ -3,14 +3,8 @@ const { program, Option } = require('commander');
 const fs = require('fs');
 const sanitize = require('sanitize-filename');
 const os = require('os');
-
-const logs = require('./logs');
-const utils = require('./utils');
-const checks = require('./checks');
 const path = require('path');
 const chalk = require('chalk');
-const { realpathSync } = require('fs');
-const constants = require('./constants');
 
 ////////////////////////////////////////////////////
 /* 
@@ -28,9 +22,18 @@ program
   .addOption(new Option('--nocss', 'Dose not create a css module'))
   .addOption(new Option('-n, --css-name <name>').conflicts('nocss'))
   .addOption(new Option('-x, --as-jsx').default(false))
-  .addOption(new Option('-e, -file-extention <name>').default('js').conflicts('jsx'));
+  .addOption(new Option('-e, --file-extention <name>').default('js').conflicts('jsx'))
+  .addOption(new Option('-s, --silent', 'Dose not log any messages').default(false));
 
 program.parse();
+////////////////////////////////////////////////////
+/* 
+      Parse program options before requiring other modules to make options visible in those modules.
+*/
+const logs = require('./logs');
+const utils = require('./utils');
+const checks = require('./checks');
+const constants = require('./constants');
 
 const [...COMPONENT_NAME_ARRY] = program.args;
 const { name: COMPONENT_NAME, changed } = utils.parseComponentName(COMPONENT_NAME_ARRY);
