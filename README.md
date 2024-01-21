@@ -4,13 +4,19 @@ _the name was taken…_
 
 **A command line interface (CLI) tool to creates a react component in your `src/components/` directory.**
 
+See on [npm page](https://www.npmjs.com/package/make-comp)
+
+# ***Usage***
+```
+npx make-comp <component-name> <options>
+```
+
 # ***Component***
 
 **Path**
 
 ```
 <project>/src/components/<component>/<component>.js
-
 ```
 
 **File**
@@ -36,7 +42,6 @@ export default ComponentName;
         └── ComponentName/
             ├── ComponentName.js
             └── componentName.module.css
-
 ```
 
 ---
@@ -59,11 +64,11 @@ export default ComponentName;
 The component name is passed directly after the command
 
 ```
-$ npm make-comp <component-name>
+$ npx make-comp <component-name>
 ```
 
 ```
-$ npm make-comp cardGridHorizontal
+$ npx make-comp cardGridHorizontal
 ```
 
 > CardGridHorizontal
@@ -71,7 +76,7 @@ $ npm make-comp cardGridHorizontal
 **An** **alternative** method would by to multiple names separated by a space, the component name will be the concatenation of all the names in `Pascal` casing.
 
 ```
-$ npm make-comp card grid horizontal
+$ npx make-comp card grid horizontal
 ```
 
 > CardGridHorizontal
