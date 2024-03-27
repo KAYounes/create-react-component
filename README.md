@@ -6,12 +6,13 @@ _the name was taken…_
 
 See on [npm page](https://www.npmjs.com/package/make-comp)
 
-# ***Usage***
+# **_Usage_**
+
 ```
 npx make-comp <component-name> <options>
 ```
 
-# ***Component***
+# **_Component_**
 
 **Path**
 
@@ -94,9 +95,10 @@ $ npx make-comp card grid horizontal
 | Pass a name for your CSS module      | -n  | --css-name       | takes a string |
 | Creates a .jsx file instead of a .js | -x  | --as-jsx         |                |
 | Pass an alternative file extension   | -e  | --file-extension | takes a string |
+| Create an index.js file              | -i  | --index          |                |
 | No logs are outputted                | -s  | --silent         |                |
 |                                      |     |                  |                |
 
 ---
 
-> *Sorry for any bugs, I tested it and it seems to work fine.*
+> _Sorry for any bugs, I tested it and it seems to work fine._

@@ -1,6 +1,6 @@
 {
   "name": "make-comp",
-  "version": "4.1.3",
+  "version": "4.1.5",
   "description": "Create a react component with options for client-component and css modules",
   "main": "index.js",
   "scripts": {
